@@ -104,7 +104,7 @@ bot.dialog('/createNote', [
             note.title, note.text);
     }
 ]).triggerAction({ 
-    matches: 'Note.Create',
+    matches: '/createNote',
     confirmPrompt: "This will cancel the creation of the note you started. Are you sure?" 
 }).cancelAction('cancelCreateNote', "Note canceled.", {
     matches: /^(cancel|nevermind)/i,
@@ -139,7 +139,7 @@ bot.dialog('/deleteNote', [
         session.endDialog("Deleted the '%s' note.", results.response.entity);
     }
 ]).triggerAction({
-    matches: 'Note.Delete'
+    matches: '/deleteNote'
 }).cancelAction('cancelDeleteNote', "Ok - canceled note deletion.", {
     matches: /^(cancel|nevermind)/i
 });
